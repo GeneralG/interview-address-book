@@ -26,6 +26,8 @@
     </dl>
 </div>
 <div>
+    <a asp-action="Create" asp-route-contactId="@Model.id" asp-controller="ContactDetails">Add Detail Items</a> |
+    <a asp-action="Index" asp-route-contactId="@Model.id" asp-controller="ContactDetails">List Detail Items</a> |
     <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>

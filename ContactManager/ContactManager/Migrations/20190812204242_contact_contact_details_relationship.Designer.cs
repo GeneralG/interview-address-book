@@ -3,14 +3,16 @@ using ContactManager.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ContactManager.Migrations
 {
     [DbContext(typeof(ContactManagerContext))]
-    partial class ContactManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20190812204242_contact_contact_details_relationship")]
+    partial class contact_contact_details_relationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,14 +45,14 @@ namespace ContactManager.Migrations
 
                     b.Property<int>("contact");
 
-                    b.Property<int>("contactId");
+                    b.Property<int>("contactID");
 
                     b.Property<string>("contactItem")
                         .IsRequired();
 
                     b.HasKey("id");
 
-                    b.HasIndex("contactId");
+                    b.HasIndex("contactID");
 
                     b.ToTable("ContactDetails");
                 });
@@ -59,7 +61,7 @@ namespace ContactManager.Migrations
                 {
                     b.HasOne("ContactManager.Models.Contact")
                         .WithMany("contactDetails")
-                        .HasForeignKey("contactId")
+                        .HasForeignKey("contactID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

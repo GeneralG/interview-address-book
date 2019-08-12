@@ -10,7 +10,6 @@ C:\_GitHub\interview-address-book\ContactManager\ContactManager\bin\Debug\netcor
 C:\_GitHub\interview-address-book\ContactManager\ContactManager\bin\Debug\netcoreapp2.1\ContactManager.pdb
 C:\_GitHub\interview-address-book\ContactManager\ContactManager\bin\Debug\netcoreapp2.1\ContactManager.Views.dll
 C:\_GitHub\interview-address-book\ContactManager\ContactManager\bin\Debug\netcoreapp2.1\ContactManager.Views.pdb
-C:\_GitHub\interview-address-book\ContactManager\ContactManager\obj\Debug\netcoreapp2.1\ContactManager.csprojAssemblyReference.cache
 C:\_GitHub\interview-address-book\ContactManager\ContactManager\obj\Debug\netcoreapp2.1\ContactManager.TagHelpers.input.cache
 C:\_GitHub\interview-address-book\ContactManager\ContactManager\obj\Debug\netcoreapp2.1\ContactManager.TagHelpers.output.cache
 C:\_GitHub\interview-address-book\ContactManager\ContactManager\obj\Debug\netcoreapp2.1\ContactManager.RazorCoreGenerate.cache
@@ -36,3 +35,4 @@ C:\_GitHub\interview-address-book\ContactManager\ContactManager\obj\Debug\netcor
 C:\_GitHub\interview-address-book\ContactManager\ContactManager\obj\Debug\netcoreapp2.1\Razor\Views\ContactDetails\Details.g.cshtml.cs
 C:\_GitHub\interview-address-book\ContactManager\ContactManager\obj\Debug\netcoreapp2.1\Razor\Views\ContactDetails\Edit.g.cshtml.cs
 C:\_GitHub\interview-address-book\ContactManager\ContactManager\obj\Debug\netcoreapp2.1\Razor\Views\ContactDetails\Index.g.cshtml.cs
+C:\_GitHub\interview-address-book\ContactManager\ContactManager\obj\Debug\netcoreapp2.1\ContactManager.csprojAssemblyReference.cache

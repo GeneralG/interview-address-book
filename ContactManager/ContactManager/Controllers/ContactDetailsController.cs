@@ -19,9 +19,9 @@ namespace ContactManager.Controllers
         }
 
         // GET: ContactDetails
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int contactId)
         {
-            return View(await _context.ContactDetails.ToListAsync());
+            return View(await _context.ContactDetails.Where(e => e.contactId == contactId).ToListAsync());
         }
 
         // GET: ContactDetails/Details/5
@@ -43,9 +43,12 @@ namespace ContactManager.Controllers
         }
 
         // GET: ContactDetails/Create
-        public IActionResult Create()
+        public IActionResult Create(int contactId)
         {
-            return View();
+            ContactDetails cd = new ContactDetails();
+            cd.contactId = contactId;
+            
+            return View(cd);
         }
 
         // POST: ContactDetails/Create
@@ -53,13 +56,13 @@ namespace ContactManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,contactItem")] ContactDetails contactDetails)
+        public async Task<IActionResult> Create([Bind("id,contactItem,contactId")] ContactDetails contactDetails)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(contactDetails);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { contactId = contactDetails.contactId});
             }
             return View(contactDetails);
         }
@@ -85,7 +88,7 @@ namespace ContactManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,contactItem")] ContactDetails contactDetails)
+        public async Task<IActionResult> Edit(int id, [Bind("id,contactItem,contactId")] ContactDetails contactDetails)
         {
             if (id != contactDetails.id)
             {
@@ -110,7 +113,7 @@ namespace ContactManager.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { contactId = contactDetails.contactId });
             }
             return View(contactDetails);
         }
@@ -141,7 +144,7 @@ namespace ContactManager.Controllers
             var contactDetails = await _context.ContactDetails.FindAsync(id);
             _context.ContactDetails.Remove(contactDetails);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), new { contactId = contactDetails.contactId});
         }
 
         private bool ContactDetailsExists(int id)

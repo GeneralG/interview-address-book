@@ -19,9 +19,15 @@ namespace ContactManager.Controllers
         }
 
         // GET: Contacts
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string firstName = null, string lastName = null)
         {
-            return View(await _context.Contact.ToListAsync());
+            if (firstName is null && lastName is null)
+            {
+                return View(await _context.Contact.ToListAsync()); 
+            }
+            else {
+                return View(await _context.Contact.Where<Contact>(e => e.firstName.Contains(firstName) || e.lastName.Contains(lastName)).ToListAsync());
+            }
         }
 
         // GET: Contacts/Details/5
@@ -148,5 +154,6 @@ namespace ContactManager.Controllers
         {
             return _context.Contact.Any(e => e.id == id);
         }
+
     }
 }
